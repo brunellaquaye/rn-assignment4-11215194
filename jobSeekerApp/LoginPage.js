@@ -15,8 +15,8 @@ const LoginPage = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.name}>Nella</Text>
-      <Text style={styles.title}>Welcome Back</Text>
+      <Text style={styles.name}>Jobizz</Text>
+      <Text style={styles.title}>Welcome Back👋</Text>
       <Text style={styles.subtitle}>Let's log in. Apply to jobs!</Text>
 
       <View>
@@ -50,11 +50,20 @@ const LoginPage = () => {
           <Text style={styles.subtitle1}>Or continue with</Text>
           <View style={styles.span}></View>
         </View>
-        <View style={{ justifyContent: "space-around", flexDirection: "row" , marginBottom: 30 }}>
+        <View style={{ justifyContent: "space-between", flexDirection: "row" , marginBottom: 30, width:216, alignItems:"center", alignSelf:"center" }}>
+        <View style={{backgroundColor:"#FFFFFF", borderRadius: 100,padding:15}}>
            <Image style={styles.icon} source={require("./assets/Vector.png")} /> 
+           </View>
+           <View style={{backgroundColor:"#FFFFFF", borderRadius: 100,padding:15}}>
            <Image style={styles.icon} source={require("./assets/flat-color-icons_google.png")} /> 
+           </View>
+           <View style={{backgroundColor:"#FFFFFF", borderRadius: 100,padding:15}}>
            <Image style={styles.icon} source={require("./assets/Vector-3.png")} /> 
+           </View>
+           
         </View>
+
+         {/* Add the red dot to signify a notification */}
 
         <Text style={styles.subtitle2}>
           Haven't an account?<Text style={{color:"#356899"}}> Register</Text>
