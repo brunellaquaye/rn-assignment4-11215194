@@ -6,12 +6,26 @@ import {
   TextInput,
   TouchableOpacity,
   Image,
+  Alert,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import HomeScreen from "./HomeScreen";
 
 const LoginPage = () => {
   const navigation = useNavigation();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const HandleLogin = () => {
+    if (name.trim() === "" || email.trim() === "")
+    {
+      Alert.alert("Please enter a valid name and email address")
+    }else{
+      //Here when the login button is pressed, It navigates to the HomeScreen and sends along the name and email parameters
+      navigation.navigate("HomeScreen", {name, email});
+    }
+  }
 
   return (
     <View style={styles.container}>
@@ -22,14 +36,16 @@ const LoginPage = () => {
       <View>
         <TextInput
           style={styles.input}
-          value={Text}
+          value={name}
+          onChangeText = {text => setName(text)}
           placeholder="Name"
           placeholderTextColor="#AFB0B6"
         />
 
         <TextInput
           style={styles.input}
-          value={Text}
+          value={email}
+          onChangeText={text => setEmail(text)}
           placeholder="Email"
           placeholderTextColor="#AFB0B6"
         />
@@ -38,7 +54,7 @@ const LoginPage = () => {
           <TouchableOpacity>
             <Text
               style={styles.buttonText}
-              onPress={() => navigation.navigate("HomeScreen")}
+              onPress={HandleLogin}
             >
               Log in
             </Text>
@@ -63,7 +79,6 @@ const LoginPage = () => {
            
         </View>
 
-         {/* Add the red dot to signify a notification */}
 
         <Text style={styles.subtitle2}>
           Haven't an account?<Text style={{color:"#356899"}}> Register</Text>
